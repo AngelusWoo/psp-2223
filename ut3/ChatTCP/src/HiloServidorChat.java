@@ -30,12 +30,12 @@ public class HiloServidorChat extends Thread {
             try {
                 cadena = fentrada.readUTF();
                 if (cadena.trim().equals("*")) {
-                    comun.setACTUALES(comun.getACTUALES() + 1);
+                    comun.setACTUALES(comun.getACTUALES() - 1);
                     System.out.println("NUMERO DE CONEXIONES ACTUALES: " + comun.getACTUALES());
                     break;
                 }
                 comun.setMensajes(comun.getMensajes() + cadena + "\n");
-                EnviarMensajeTodos(texto);
+                EnviarMensajeTodos(comun.getMensajes());
             } catch (IOException e) {
                 e.printStackTrace();
                 break;

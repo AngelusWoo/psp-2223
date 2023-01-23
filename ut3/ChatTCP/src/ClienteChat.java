@@ -24,11 +24,16 @@ public class ClienteChat extends JFrame implements ActionListener, Runnable {
         super(" CONEXION DEL CLIENTE CHAT: " + nombre);
         setLayout(null);
         mensaje.setBounds(10,10,400,30);
+        add(mensaje);
+
+        textarea1 = new JTextArea();
+        scrollPane1 = new JScrollPane(textarea1);
+        scrollPane1.setBounds(10,50,400,300);
         add(scrollPane1);
 
         botonEnviar.setBounds(420,10,100,30);
         add(botonEnviar);
-        botonSalir.setBounds(420,10,100,30);
+        botonSalir.setBounds(420,50,100,30);
         add(botonSalir);
 
         textarea1.setEditable(false);
