@@ -1,5 +1,3 @@
-package actividades.Actividad3_7;
-
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
