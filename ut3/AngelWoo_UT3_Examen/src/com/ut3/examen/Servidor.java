@@ -1,28 +1,31 @@
 package com.ut3.examen;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Servidor {
-    String[] frases = {"frase1","frase2","frase3","frase4"};
-    String[] libros = {"libro1","libro2","libro3","libro4"};
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         ServerSocket serverSocket = new ServerSocket(5000);
+        System.out.println("Server iniciado...");
 
-        Socket cliente = serverSocket.accept();
+        while (true) {
+            Socket cliente = serverSocket.accept();
+            HiloServidor hilo = new HiloServidor(cliente);
 
-        ObjectOutputStream salida;
-        try {
-            salida = new ObjectOutputStream(cliente.getOutputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
+            hilo.start();
+
+            ObjectInputStream perEnt = new ObjectInputStream(cliente.getInputStream());
+            String str = (String) perEnt.readObject();
+
+            ObjectOutputStream outObjeto = new ObjectOutputStream(cliente.getOutputStream());
+            String ser = "";
+            outObjeto.writeObject(ser);
         }
 
-        cliente.close();
     }
 }
 
