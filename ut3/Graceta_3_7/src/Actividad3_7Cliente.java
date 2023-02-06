@@ -1,9 +1,8 @@
-package actividades.Actividad3_7;
-
 import java.io.*;
 import java.net.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import actividades.Actividad3_7.Numeros;
 
 public class Actividad3_7Cliente {
 	public static void main(String[] arg) throws IOException, ClassNotFoundException {
@@ -30,7 +29,7 @@ public class Actividad3_7Cliente {
 
 		do {
 
-			System.out.print("Introduce un n�mero: ");
+			System.out.print("Introduce un numero: ");
 
 			try {
 				numero = sc.nextInt();
@@ -38,7 +37,7 @@ public class Actividad3_7Cliente {
 			} catch (InputMismatchException nn) {
 				sc.nextLine();
 				numero = 1;   // se asigna un valor mayor a 0 para poder pedir otro número
-				System.out.print("\tN�mero incorrecto...\n");
+				System.out.print("\tNumero incorrecto...\n");
 				continue;
 			}
 			Numeros n = new Numeros();
@@ -63,4 +62,4 @@ public class Actividad3_7Cliente {
 		perSal.close();
 		cliente.close();
 	}
-}// ..
+}

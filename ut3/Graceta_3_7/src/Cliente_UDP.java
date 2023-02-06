@@ -1,4 +1,3 @@
-package actividades.Actividad3_7;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -9,7 +8,6 @@ import java.net.ConnectException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -86,7 +84,6 @@ public class Cliente_UDP {
 		System.out.println("CLIENTE UDP FINALIZADO....");
 
 		// CERRAR STREAMS Y SOCKETS
-		
 		cliente.close();
 
 	}

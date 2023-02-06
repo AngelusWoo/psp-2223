@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Cajera">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Cajera.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
