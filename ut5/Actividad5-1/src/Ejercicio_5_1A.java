@@ -1,11 +1,11 @@
 import java.security.*;
 
-public class Ejemplo4 {
+public class Ejercicio_5_1A {
     public static void main(String[] args) {
         MessageDigest md;
 
         try {
-            md = MessageDigest.getInstance("SHA-256");
+            md = MessageDigest.getInstance("MD5");
             String texto = "Esto es un texto plano.";
 
             byte dataBytes[] = texto.getBytes();
