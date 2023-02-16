@@ -13,18 +13,18 @@ public class Ejercicio_5_1B {
             String clave = sc.nextLine();
 
             System.out.println("Texto 2: ");
-            String texto2 = sc.nextLine();
+            String texto1 = sc.nextLine();
 
             System.out.println("Texto 3: ");
-            String texto3 = sc.nextLine();
+            String texto2 = sc.nextLine();
 
-            byte resumenClave[] = getResumen(clave);
+            byte resumenClave[] = getResumenClave(clave);
             String resClave = new String(resumenClave);
 
-            byte resumen1[] = getResumen(texto2);
+            byte resumen1[] = getResumen(texto1);
             String res1 = new String(resumen1);
 
-            byte resumen2[] = getResumen(texto3);
+            byte resumen2[] = getResumen(texto2);
             String res2 = new String(resumen2);
 
             System.out.println("Resumen clave: " + resClave);
@@ -42,9 +42,16 @@ public class Ejercicio_5_1B {
     }
 
     static byte[] getResumen (String s) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");;
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte dataBytes[] = s.getBytes();
         md.update(dataBytes);
         return md.digest();
+    }
+
+    static byte[] getResumenClave (String s) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte dataBytes[] = s.getBytes();
+        md.update(dataBytes);
+        return md.digest(s.getBytes());
     }
 }
