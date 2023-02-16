@@ -26,11 +26,7 @@ public class Ejemplo7 {
 
             if (check) System.out.println("FIRMA VERIFICADA CON CLAVE PUBLICA");
             else System.out.println("FIRMA NO VERIFICADA");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (SignatureException e) {
+        } catch (NoSuchAlgorithmException | SignatureException | InvalidKeyException e) {
             e.printStackTrace();
         }
     }
