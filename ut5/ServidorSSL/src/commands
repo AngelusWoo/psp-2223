@@ -1,0 +1,23 @@
+Ejemplo: ClienteSSL, ServidorSSL. Veremos diferentes versiones de esta aplicacién, la cual envia un mensaje de texto sobre un canal cifrado:
+- Version 1: para su ejecución se necesita ejecutar la aplicacion desde la linea de comandos, indicando la ruta del almacén de clave y su clave de acceso.
+
+- Creacion del certificado digital y almacén de certificados:
+keytool -genkey -alias servidor -keyalg RSA -keystore AlmacenSrv -storepass 1234567
+
+- Exportación de certificao digital para enviarlo al cliente:
+keytool -exportcert -alias servidor -keystore AlmacenSrv -storepass 1234567 -file CertificadoServ.cer
+
+- Envio de certificado al cliente :
+keytool -importcert -trustcacerts -alias servidor -file CertificadoServ.cer -keystore CliCertConfianza -storepass 890123
+
+
+Para ejecutar el programa servidor es necesario indicar el certificado que se utilizará.
+Se escribe la siguiente orden desde la línea de comandos, se asuma que el fichero de almacén  de claves se sitúa en el directorio donde se ejecuta el servidor.
+Si se localiza en otro directorio habría que indicarlo.
+(Por ejemplo /CAPIT5/SSL/srv/AlmacenSrv)
+-Djavax.net.ssl.keyStore=AlmacenSrv         (java)
+-Djavax.net.ssl.keyStorePassword=1234567    (ServidorSSL)
+
+Para ejecutar el programa cliente escribimos lo siguiente:
+-Djavax.net.ssl.trustStore=CliCertConfianza (java)
+-Djavax.net.ssl.trustStorePassword=890123   (ClienteSSL)
