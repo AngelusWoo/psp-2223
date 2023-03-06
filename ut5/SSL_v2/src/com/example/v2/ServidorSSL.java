@@ -12,7 +12,7 @@ public class ServidorSSL {
         int puerto = 6000;
 
         // Indicar ruta del almacén
-        System.setProperty("javax.net.ssl.keyStore","src/com/example/AlmacenSrv");
+        System.setProperty("javax.net.ssl.keyStore","src/com/example/v2/AlmacenSrv");
         System.setProperty("javax.net.ssl.keyStorePassword","1234567");
 
         SSLServerSocketFactory sfact = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();

@@ -1,0 +1,19 @@
+generatedKeys() -> Ejemplo AlmacenClaveSecreta (288) and Ejemplo 12 (290)
+- Guardar clave pública y privada -> Actividad 5.3 (276)
+
+getSecretKey() -> Ejemplo AlmacenClaveSecreta (288)
+
+
+cryptLog() -> Ejemplo 13Cifra (292)
+decryptLog() -> Ejemplo 13Descifra (293)
+getPrivateKey() -> Ejemplo 8 (277)
+getPublicKey() -> Ejemplo 9 (278)
+
+firmLog() -> Ejemplo 8 (277)
+verifyFirmLog() -> Ejemplo 9 (278)
+
+Para el punto 4
+- En el ejemplo 7 (274) se firma con la clave privada y se verifica con la clave pública
+- Delante del ejemplo 7 se encuentra el como almacenar las claves publicas y privadas
+- En el ejemplo 8 (277) se firma ficheros con el archivo de la clave privada
+- En el ejemplo 9 (278) se verifica la firma de los ficheros con el archivo de la clave publica

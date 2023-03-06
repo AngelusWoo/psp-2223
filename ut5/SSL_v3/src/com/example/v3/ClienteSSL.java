@@ -1,27 +1,38 @@
-package com.example.v2;
+package com.example.v3;
 
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 public class ClienteSSL {
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, KeyManagementException {
         String host = "localhost";
         int puerto = 6000;
 
-        System.setProperty("javax.net.ssl.trustStore","src/com/example/CliCertConfianza");
-        System.setProperty("javax.net.ssl.trustStorePassword","890123");
+        FileInputStream ficCerConf = new FileInputStream("src/com/example/v3/CliCertConfianza");
+        String claveCerConf = "890123";
+
+        KeyStore almacenConf = KeyStore.getInstance(KeyStore.getDefaultType());
+        almacenConf.load(ficCerConf,claveCerConf.toCharArray());
+
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        tmf.init(almacenConf);
+
+        SSLContext contextoSSL = SSLContext.getInstance("TLS");
+        contextoSSL.init(null,tmf.getTrustManagers(),null);
 
         System.out.println("PROGRAMA CLIENTE INICIADO...");
 
-        SSLSocketFactory sfact = (SSLSocketFactory) SSLSocketFactory.getDefault();
+        SSLSocketFactory sfact = contextoSSL.getSocketFactory();
         SSLSocket cliente = (SSLSocket) sfact.createSocket(host,puerto);
 
         DataOutputStream flujoSalida = new DataOutputStream(cliente.getOutputStream());

@@ -16,7 +16,7 @@ public class ClienteSSL {
         String host = "localhost";
         int puerto = 6000;
 
-        System.setProperty("javax.net.ssl.trustStore","src/com/example/CliCertConfianza");
+        System.setProperty("javax.net.ssl.trustStore","src/com/example/v2/CliCertConfianza");
         System.setProperty("javax.net.ssl.trustStorePassword","890123");
 
         System.out.println("PROGRAMA CLIENTE INICIADO...");

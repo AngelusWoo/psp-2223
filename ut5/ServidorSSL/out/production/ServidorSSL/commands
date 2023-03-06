@@ -15,9 +15,7 @@ Para ejecutar el programa servidor es necesario indicar el certificado que se ut
 Se escribe la siguiente orden desde la línea de comandos, se asuma que el fichero de almacén  de claves se sitúa en el directorio donde se ejecuta el servidor.
 Si se localiza en otro directorio habría que indicarlo.
 (Por ejemplo /CAPIT5/SSL/srv/AlmacenSrv)
--Djavax.net.ssl.keyStore=AlmacenSrv         (java)
--Djavax.net.ssl.keyStorePassword=1234567    (ServidorSSL)
+java -Djavax.net.ssl.keyStore=AlmacenSrv -Djavax.net.ssl.keyStorePassword=1234567 [Clase servidor]
 
 Para ejecutar el programa cliente escribimos lo siguiente:
--Djavax.net.ssl.trustStore=CliCertConfianza (java)
--Djavax.net.ssl.trustStorePassword=890123   (ClienteSSL)
+java -Djavax.net.ssl.trustStore=CliCertConfianza -Djavax.net.ssl.trustStorePassword=890123 [Clase cliente]
