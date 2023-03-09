@@ -3,12 +3,15 @@ Ejemplo: ClienteSSL, ServidorSSL. Veremos diferentes versiones de esta aplicaci�
 
 - Creacion del certificado digital y almacén de certificados:
 keytool -genkey -alias servidor -keyalg RSA -keystore AlmacenSrv -storepass 1234567
+keytool -genkey -alias cliente -keyalg RSA -keystore AlmacenCli -storepass clavecli
 
 - Exportación de certificado digital para enviarlo al cliente:
 keytool -exportcert -alias servidor -keystore AlmacenSrv -storepass 1234567 -file CertificadoServ.cer
+keytool -exportcert -alias cliente -keystore AlmacenCli -storepass clavecli -file CertificadoCli.cer
 
 - Envio de certificado al cliente :
 keytool -importcert -trustcacerts -alias servidor -file CertificadoServ.cer -keystore CliCertConfianza -storepass 890123
+keytool -importcert -trustcacerts -alias cercliente -file CertificadoCli.cer -keystore SrvCertConfianza -storepass cercli
 
 
 Para ejecutar el programa servidor es necesario indicar el certificado que se utilizará.

@@ -31,7 +31,7 @@ public class ClienteSSL {
 
         System.out.println("Recibiendo del servidor: \n\t" + flujoEntrada.readUTF());
 
-        //sessionInfo(cliente);
+        sessionInfo(cliente);
 
         flujoEntrada.close();
         flujoSalida.close();
